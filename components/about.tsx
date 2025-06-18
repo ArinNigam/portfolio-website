@@ -143,7 +143,7 @@ export function About() {
                       <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full animate-in"></div>
                         <span className="text-sm text-muted-foreground">
-                          Practice Data Structures and Algorithms through Lee tcode
+                          Practice Data Structures and Algorithms through Leetcode
                         </span>
                       </div>
                     </div>

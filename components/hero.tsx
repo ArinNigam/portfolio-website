@@ -123,7 +123,7 @@ export function Hero() {
                   {[
                     { href: "https://github.com/arinnigam", icon: Github, label: "GitHub" },
                     { href: "https://linkedin.com/in/arin-nigam", icon: Linkedin, label: "LinkedIn" },
-                    { href: "https://arinnigam.com", icon: ExternalLink, label: "Website" },
+                    { href: "https://arinnigam.vercel.app", icon: ExternalLink, label: "Website" },
                     { href: "mailto:arin.nigam@gmail.com", icon: Mail, label: "Email" },
                     { href: "https://leetcode.com/u/arin_nigam", icon: Code, label: "LeetCode" },
                   ].map((social, index) => {

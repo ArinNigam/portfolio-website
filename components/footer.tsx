@@ -22,7 +22,7 @@ export function Footer() {
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="https://arinnigam.com"
+              href="https://arinnigam.vercel.app"
               className="text-muted-foreground hover:text-foreground transition-all hover:scale-110"
             >
               <ExternalLink className="h-6 w-6" />
