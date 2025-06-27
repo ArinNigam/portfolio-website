@@ -31,15 +31,46 @@ export function Projects() {
   // Projects sorted by date (most recent first)
   const projects = [
     {
+      title: "Health Copilot",
+      description:"AI-powered health assistant that analyzes medical reports and provides personalized health insights. Utilizes Langchain and OpenAI RAG for natural language processing and data analysis.",
+      image: "/images/health_copilot.png",
+      technologies: ["Next.js", "Tailwind CSS", "Node.js", "AWS", "S3", "Langchain", "Supabase", "OpenAI", "Docker"],
+      liveUrl: "https://yourhealthcopilot.vercel.app/",
+      githubUrl: "https://www.yourhealthcopilot.io/",
+      status: "Live",
+      date: "May 2025 - Present",
+      metrics: [
+        { icon: Users, label: "Try it Out" },
+        { icon: TrendingUp, label: "Analyses reports in minutes" },
+        { icon: Zap, label: "Open for beta testing" },
+      ],
+    },
+    {
+      title: "GTA-VI Resume Builder",
+      description:
+        "Interactive 3D resume builder that allows users to create and share resumes in a GTA VI-inspired environment. Utilizes Three.js for 3D rendering and Langchain for AI-driven resume generation.",
+      image: "/images/3d_resume.png",
+      technologies: ["Three.js", "Tailwind CSS", "S3", "Upstash", "Langchain", "Gemini"],
+      liveUrl: "https://gta-vi-resume.vercel.app/",
+      githubUrl: "https://gta-vi-resume.vercel.app/",
+      status: "Completed",
+      date: "Apr 2025 - May 2025",
+      metrics: [
+        { icon: Activity, label: "100+ resumes created" },
+        { icon: TrendingUp, label: "50% increase in resume views" },
+        { icon: Zap, label: "AI driven resume" },
+      ],
+    },
+    {
       title: "MySummary Pro",
       description:
         "AI-powered Micro-SaaS platform with WhatsApp chatbot integration for summarizing websites and YouTube links with 90% efficiency. Handles 1000+ monthly API calls with integrated analytics.",
       image: "/images/my_summary.png",
-      technologies: ["Node.js", "Next.js", "Docker", "AWS", "AI/ML"],
+      technologies: ["Node.js", "Next.js", "Docker", "AWS", "Gemini"],
       liveUrl: "https://mysummary.pro",
       githubUrl: "https://www.linkedin.com/company/mysummary-pro/",
-      status: "Live",
-      date: "Dec 2024 - Present",
+      status: "Completed",
+      date: "Dec 2024 - Apr2025",
       metrics: [
         { icon: Users, label: "1000+ API calls/month" },
         { icon: TrendingUp, label: "90% efficiency" },
@@ -49,7 +80,7 @@ export function Projects() {
       title: "WebAppScaler",
       description:
         "High-performance web application with optimized API response times and robust messaging system. Built to handle massive concurrent loads with advanced caching and queue management.",
-      image: "/images/web_app_scale.png",
+      image: "/images/web_app_scaler.png",
       technologies: ["HTML", "Node.js", "MongoDB", "Redis", "RabbitMQ", "Kafka", "Docker"],
       liveUrl: "https://www.canva.com/design/DAGSCiNK3rY/MD_cRhnVT53Xqy7Z_nB9xw/edit?utm_content=DAGSCiNK3rY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       githubUrl: "https://github.com/ArinNigam/WebAppScaler",

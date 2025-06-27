@@ -121,31 +121,22 @@ export function About() {
                       <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
                         <div className="w-2 h-2 bg-red-500 rounded-full animate-in"></div>
                         <span className="text-sm text-muted-foreground">
-                          Build scalable web applications with modern frameworks
+                          Growing with the latest technologies and frameworks
                         </span>
                       </div>
                       <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
                         <div className="w-2 h-2 bg-blue-500 rounded-full animate-in"></div>
                         <span className="text-sm text-muted-foreground">
-                          Contribute to open-source projects and communities
+                          Building scalable AI products and applications
                         </span>
                       </div>
                       <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-in"></div>
                         <span className="text-sm text-muted-foreground">
-                          Keep up with the latest trends in software development
+                          Contribute to open-source projects and communities
                         </span>
                       </div>
-                      <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full animate-in"></div>
-                        <span className="text-sm text-muted-foreground">Play Badminton, Cricket and hangout with my friends</span>
-                      </div>
-                      <div className="flex items-center gap-3 p-3 bg-background rounded-lg border hover:shadow-sm transition-all">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full animate-in"></div>
-                        <span className="text-sm text-muted-foreground">
-                          Practice Data Structures and Algorithms through Leetcode
-                        </span>
-                      </div>
+                      
                     </div>
                   </div>
 
@@ -156,17 +147,28 @@ export function About() {
                         Core Values
                       </span>
                     </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {["Innovation", "Passionate", "Courageous", "Collaboration", "Positivity", "Learning", "Respectful"].map((value, index) => (
-                        <Badge
-                          key={value}
-                          variant="outline"
-                          className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 animate-in fade-in"
-                          style={{ animationDelay: `${index * 100}ms` }}
-                        >
-                          {value}
-                        </Badge>
-                      ))}
+                    <div className="space-y-4">
+                      {/* ARIN Acronym */}
+                      <div className="bg-gradient-to-r from-primary/10 to-blue-500/10 p-4 rounded-lg border">
+                        <div className="grid grid-cols-1 gap-2">
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl font-bold text-primary">A</span>
+                            <span className="text-sm font-medium">Ambitious</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl font-bold text-primary">R</span>
+                            <span className="text-sm font-medium">Resilient</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl font-bold text-primary px-1">I</span>
+                            <span className="text-sm font-medium">Innovative</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl font-bold text-primary">N</span>
+                            <span className="text-sm font-medium">Never-give-up</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

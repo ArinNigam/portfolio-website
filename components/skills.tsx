@@ -30,14 +30,14 @@ export function Skills() {
     {
       title: "Languages & Frameworks",
       icon: Code,
-      skills: ["C++", "Java", "JavaScript", "TypeScript", "Python", "React.js", "Node.js", "Flutter", "Dart"],
+      skills: ["C++", "Java", "JavaScript", "TypeScript", "Python", "React.js", "Node.js", "Flutter", "Dart", "LangChain"],
       color: "text-blue-500",
       description: "Modern programming languages and frameworks",
     },
     {
       title: "Databases & Backend",
       icon: Database,
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "GraphQL", "REST APIs", "Express.js"],
+      skills: ["S3", "GCS", "MongoDB", "PostgreSQL", "MySQL", "Redis", "Supabase", "GraphQL", "REST APIs", "Express.js"],
       color: "text-green-500",
       description: "Database management and backend technologies",
     },

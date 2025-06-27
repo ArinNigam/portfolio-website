@@ -87,7 +87,7 @@ export function Hero() {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-2 mb-8 animate-in fade-in slide-in-from-bottom-4 delay-1000">
-                  {["Springboot", "Node.js", "AWS", "GCP", "React.js", "Flutter"].map((skill, index) => (
+                  {["Springboot", "Node.js", "AWS", "GCP", "React.js", "Flutter", "LangChain"].map((skill, index) => (
                     <Badge
                       key={skill}
                       variant="secondary"
