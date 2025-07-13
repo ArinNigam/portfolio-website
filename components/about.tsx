@@ -206,7 +206,7 @@ export function About() {
                         </div>
 
                         <div className="flex items-center justify-center gap-4">
-                          <Badge variant="secondary">CGPA: 7.8/10.0</Badge>
+                          <Badge variant="secondary">CGPA: 8.08/10.0</Badge>
                         </div>
 
                         <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
@@ -233,7 +233,7 @@ export function About() {
                     <div className="space-y-3">
                       <Card className="p-4 hover:shadow-sm transition-all duration-300 border-l-4 border-l-red-500">
                         <div className="space-y-2">
-                          <h4 className="font-semibold text-sm">SDE Intern @ Walmart Global Tech</h4>
+                          <h4 className="font-semibold text-sm">Backend Engineer @ Cityflo</h4>
                           <p className="text-xs text-muted-foreground">Building scalable APIs and automation systems</p>
                           <Badge variant="outline">
                             Current

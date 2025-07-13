@@ -13,18 +13,31 @@ export function Experience() {
   }, [])
 
   const experiences = [
+     {
+      title: "Backend Engineer",
+      company: "Cityflo",
+      location: "Mumbai",
+      duration: "Jul 2025 - Present",
+      technologies: ["Django", "React", "Postgres"],
+      achievements: [
+        "Developed LuxeCabs premium cab booking web app, enhancing user experience and fare calculation logic based on cab type and distance",
+        "Implemeneted both frontend and backend for the LuxeCabs app, ensuring seamless integration and functionality",
+        "https://luxe.cityflo.com/",
+      ],
+      current: true,
+    },
     {
       title: "SDE Intern",
       company: "Walmart Global Tech",
       location: "Bengaluru",
-      duration: "Jan 2025 - Present",
+      duration: "Jan 2025 - Jun 2025",
       technologies: ["Springboot", "Java", "GCP", "Kafka", "Airflow"],
       achievements: [
         "Developed 10+ REST and GraphQL API endpoints for new admin portal, going into production within 2 sprints",
         "Automated regression testing for seller-risk workflows by triggering DAGs and generating status reports stored in GCS",
         "Built regression pipeline using Airflow, BigQuery, and GCS to eliminate manual testing",
       ],
-      current: true,
+      current: false,
     },
     {
       title: "Open Source Contributor",

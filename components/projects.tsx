@@ -35,7 +35,7 @@ export function Projects() {
       description:"AI-powered health assistant that analyzes medical reports and provides personalized health insights. Utilizes Langchain and OpenAI RAG for natural language processing and data analysis.",
       image: "/images/health_copilot.png",
       technologies: ["Next.js", "Tailwind CSS", "Node.js", "AWS", "S3", "Langchain", "Supabase", "OpenAI", "Docker"],
-      liveUrl: "https://yourhealthcopilot.vercel.app/",
+      liveUrl: "https://youtu.be/fU4Js2q2ddo",
       githubUrl: "https://www.yourhealthcopilot.io/",
       status: "Live",
       date: "May 2025 - Present",
