@@ -1,10 +1,11 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
 import { Experience } from "@/components/experience"
+import { Systems } from "@/components/systems"
+import { Demos } from "@/components/demos"
 import { Skills } from "@/components/skills"
-import { Projects } from "@/components/projects"
 import { Achievements } from "@/components/achievements"
+import { Attachments } from "@/components/attachments"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
@@ -14,11 +15,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
         <Experience />
+        <Systems />
+        <Demos />
         <Skills />
-        <Projects />
         <Achievements />
+        <Attachments />
         <Contact />
       </main>
       <Footer />

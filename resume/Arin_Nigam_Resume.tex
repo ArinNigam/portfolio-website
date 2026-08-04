@@ -1,0 +1,72 @@
+% Arin Nigam — one-page résumé
+% Compile: tectonic Arin_Nigam_Resume.tex
+\documentclass[10pt]{article}
+
+\usepackage[a4paper,top=1.1cm,bottom=1.1cm,left=1.4cm,right=1.4cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\pagestyle{empty}
+\setlength{\parskip}{2pt}
+
+\titleformat{\section}{\Large\bfseries}{}{0pt}{}[\vspace{-10pt}\rule{\textwidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+
+\newcommand{\role}[4]{%
+  \textbf{#1 --- #2} \hfill #3\\
+  {\small #4}\vspace{-2pt}}
+
+\setlist[itemize]{leftmargin=1.1em,itemsep=1.5pt,parsep=0pt,topsep=2pt,label=\textbullet}
+
+\begin{document}
+
+\begin{center}
+  {\huge\bfseries Arin Nigam}\\[2pt]
+  AI Backend \& Real-Time Systems Engineer\\[2pt]
+  \href{mailto:arin.nigam@gmail.com}{arin.nigam@gmail.com} \;---\; +91-7042052330\\
+  \href{https://linkedin.com/in/arin-nigam}{linkedin.com/in/arin-nigam} \;---\;
+  \href{https://arinnigam.vercel.app}{arinnigam.vercel.app} \;---\;
+  \href{https://github.com/ArinNigam}{github.com/ArinNigam}
+\end{center}
+
+\vspace{-4pt}
+\section{Work Experience}
+
+\role{Software Development Engineer}{Cityflo}{Jul 2025 -- Present}{Mumbai, India}
+\begin{itemize}
+  \item Pitched, prototyped in a 6-hour hackathon, and shipped \textbf{Komo AI} to production --- a multi-agent service platform (Python, FastAPI, Anthropic Claude SDK, AWS ECS Fargate) used company-wide by \textbf{80+ people} across engineering, ops, support, and founders --- cutting investigation time from \textbf{30--60 minutes to 2--3 minutes} across 30--40 daily investigations
+  \item Designed the agent framework: spec-driven agent definitions, per-agent MCP tool servers, USD-budget-bound execution, and bidirectional handoff; shipped \textbf{Tech Mazdoor} (17 tools) and \textbf{CX-Pulse} (11 tools) integrating Aurora, ClickHouse, GitHub, Datadog, Sentry, Airflow, Linear, and CleverTap
+  \item Built core components of \textbf{SageAI}, Cityflo's AI customer support backend (Go, Gin, PostgreSQL, Redis) handling \textbf{36K chat contacts/week} at an \textbf{80\% AI deflection rate} --- cutting human-handled contacts per 1,000 rides by 56\%; owned LLM integration, AI$\to$human handoff orchestration, and ticket sync
+  \item Replaced SageAI's Flowise layer with an \textbf{in-house agent service} --- FastAPI + PydanticAI agents on a conversation graph exposing \textbf{20+ backend tools} (rides, tickets, payments, driver comms), a LiteLLM fallback model cascade, and a realtime \textbf{voice agent} (Gemini Live over LiveKit WebRTC)
+  \item Engineered SageAI's \textbf{per-room concurrency layer} for stateful conversations across horizontally-scaled ECS --- goroutine-per-room with buffered channels, Redis SetNX locks for exactly-one agent spawn, and Redis Pub/Sub for cross-instance command delivery
+  \item Own \textbf{Luxe \& Bus Rentals}, Cityflo's new B2C subsegment, end to end --- zone-based dynamic pricing with direct ops control, operator dashboard (\textbf{+40\% ops efficiency}), API latency \textbf{1s$\to$200ms}, and the direct customer booking flow
+\end{itemize}
+
+\role{Software Engineer Intern}{Walmart Global Tech}{Jan 2025 -- Jun 2025}{Bengaluru, India}
+\begin{itemize}
+  \item Built admin portal APIs across BFF, adapter, and service layers (Spring Boot, GraphQL, MongoDB) for \textbf{Confido}, Walmart's seller-risk governance platform --- RBAC-gated workflows with dual-admin approvals and SSO, replacing manual Postman/DB operations for 40+ risk analysts
+  \item Built a \textbf{regression automation framework} (Airflow DAGs, BigQuery validation, Kafka outcome consumer, Dataproc orchestration) covering 5 production risk strategies --- cut validation cycles from \textbf{6--8 hours to under 30 minutes}, enabling daily runs that previously ran weekly
+\end{itemize}
+
+\section{Education}
+\textbf{Birla Institute of Technology and Science (BITS), Pilani} \hfill Jul 2021 -- Jul 2025\\
+B.E. Electrical and Electronics Engineering \hfill CGPA: 8.1/10.0
+
+\section{Technical Skills}
+\textbf{Languages:} Go, Python, Java, TypeScript\\
+\textbf{AI / LLM:} Anthropic Claude SDK, MCP, PydanticAI, LiteLLM, realtime voice agents, RAG, vector embeddings\\
+\textbf{Backend:} FastAPI, Gin, Spring Boot, REST, GraphQL, microservices, real-time systems (LiveKit, WebRTC)\\
+\textbf{Data \& Infra:} PostgreSQL, MongoDB, Redis, Aurora, ClickHouse, BigQuery, Kafka, Airflow\\
+\textbf{Cloud / DevOps:} AWS (ECS Fargate, S3, SQS), GCP, Docker, CI/CD, Datadog, Sentry
+
+\section{Achievements}
+\begin{itemize}
+  \item \textbf{Winner --- AutomateX Hackathon 2024} $\cdot$ Smart Insti App (Flutter + backend academic platform; 200+ DAU)
+  \item \textbf{GSoC '24 open-source contributor} $\cdot$ Palisadoes Foundation --- remote, async work with 200+ developers
+  \item \textbf{Top 50 --- Meesho Dice Challenge 2024} $\cdot$ 3D AR product visualization prototype
+  \item \textbf{Runner-up --- Quark Hackathon 2024, BITS Goa} $\cdot$ PlayPals peer-to-peer activity matchmaking
+\end{itemize}
+
+\end{document}

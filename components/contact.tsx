@@ -1,198 +1,157 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Send } from "lucide-react"
+import { Mail, MapPin, Send, Clock } from "lucide-react"
 import emailjs from "emailjs-com"
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
 import { useToast } from "@/components/ui/use-toast"
+import { SectionHeading } from "@/components/section-heading"
+import { Reveal } from "@/components/reveal"
 
 export function Contact() {
-  const [mounted, setMounted] = useState(false)
+  const { toast } = useToast()
+  const [sending, setSending] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    title: "Title",
+    title: "Job Opportunity",
     message: "",
   })
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const { toast } = useToast()
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    setSending(true)
 
     const serviceID = "service_krv6bqs"
     const templateID = "template_vyr71xj"
     const userID = "QN7cB86HPU7NAT2iz"
 
-    emailjs
-      .send(serviceID, templateID, formData, userID)
-      .then(
-        (response) => {
-          toast({
-            title: "Success",
-            description: "Message sent successfully!"
-          })
-        },
-        (error) => {
-          toast({
-            title: "Error",
-            description: "Failed to send message. Please try again later."
-          })
-        }
-      )
-
-    // Reset form
-    setFormData({ name: "", email: "", message: "", title: "Title" })
+    emailjs.send(serviceID, templateID, formData, userID).then(
+      () => {
+        toast({ title: "Message sent", description: "I'll get back to you within a day." })
+        setFormData({ name: "", email: "", message: "", title: "Job Opportunity" })
+        setSending(false)
+      },
+      () => {
+        toast({
+          title: "Message not sent",
+          description: "Something went wrong — email me directly at arin.nigam@gmail.com.",
+        })
+        setSending(false)
+      },
+    )
   }
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
-          {mounted && (
-            <>
-              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-in fade-in slide-in-from-bottom-4">
-                Get In Touch
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6 animate-in fade-in slide-in-from-left-4 delay-300">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-4">{"Let's work together"}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      I'm currently looking for full-time opportunities and exciting projects. Whether you have a
-                      question, want to discuss a project, or just want to connect, feel free to reach out!
-                    </p>
-                  </div>
+    <section id="contact" className="scroll-mt-24 border-t px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow="contact"
+          title="Let's build your AI product"
+          lead="Hiring for a backend or AI systems role? Tell me what you're building."
+        />
 
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3 group">
-                      <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <Mail className="h-5 w-5 text-primary" />
-                      </div>
-                      <span>arin.nigam@gmail.com</span>
-                    </div>
-                    <div className="flex items-center space-x-3 group">
-                      <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <Phone className="h-5 w-5 text-primary" />
-                      </div>
-                      <span>+91 7042052330</span>
-                    </div>
-                    <div className="flex items-center space-x-3 group">
-                      <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <MapPin className="h-5 w-5 text-primary" />
-                      </div>
-                      <span>Mumbai, Maharashtra</span>
-                    </div>
-                  </div>
-                </div>
+        <div className="grid gap-10 lg:grid-cols-2">
+          <Reveal>
+            <div className="space-y-6">
+              <a
+                href="mailto:arin.nigam@gmail.com"
+                className="group inline-flex items-center gap-3 font-display text-2xl font-semibold text-foreground transition-colors hover:text-primary sm:text-3xl"
+              >
+                <Mail className="h-6 w-6 text-primary" />
+                arin.nigam@gmail.com
+              </a>
 
-                <Card className="animate-in fade-in slide-in-from-right-4 delay-500">
-                  <CardHeader>
-                    <CardTitle>Send a Message</CardTitle>
-                    <CardDescription>
-                      Fill out the form below and I'll get back to you as soon as possible.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <button
-                              type="button"
-                              className="block w-full rounded-md border bg-[#020817] px-3 py-2 text-left text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-all focus:scale-[1.02]"
-                            >
-                              {formData.title || "Select a Title"}
-                            </button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent className="w-full">
-                            <DropdownMenuItem
-                              onClick={() => setFormData({ ...formData, title: "General Inquiry" })}
-                            >
-                              General Inquiry
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => setFormData({ ...formData, title: "Project Collaboration" })}
-                            >
-                              Project Collaboration
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => setFormData({ ...formData, title: "Job Opportunity" })}
-                            >
-                              Job Opportunity
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => setFormData({ ...formData, title: "Other" })}
-                            >
-                              Other
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </div>
-                      <div>
-                        <Input
-                          name="name"
-                          placeholder="Your Name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="transition-all focus:scale-[1.02]"
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          name="email"
-                          type="email"
-                          placeholder="Your Email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="transition-all focus:scale-[1.02]"
-                        />
-                      </div>
-                      <div>
-                        <Textarea
-                          name="message"
-                          placeholder="Your Message"
-                          rows={5}
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
-                          className="transition-all focus:scale-[1.02]"
-                        />
-                      </div>
-                      <Button type="submit" className="w-full group">
-                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        Send Message
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <p className="flex items-center gap-3">
+                  <MapPin className="h-4 w-4 shrink-0 text-primary" />
+                  Mumbai, India — remote-first by preference
+                </p>
+                <p className="flex items-center gap-3">
+                  <Clock className="h-4 w-4 shrink-0 text-primary" />
+                  IST (UTC+5:30) — comfortable overlap with EU all day and US mornings/evenings; async-first from
+                  open-source and distributed-team work
+                </p>
               </div>
-            </>
-          )}
+
+              <div className="rounded-lg border bg-card p-5">
+                <p className="font-mono text-xs leading-relaxed text-muted-foreground">
+                  <span className="text-ok">status:</span> open to remote full-time roles
+                  <br />
+                  <span className="text-ok">focus:</span> AI backend · multi-agent systems · real-time infra
+                  <br />
+                  <span className="text-ok">response_time:</span> &lt; 24h
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border bg-card p-6">
+              <div>
+                <label htmlFor="contact-title" className="mb-1.5 block font-mono text-xs text-muted-foreground">
+                  reason
+                </label>
+                <select
+                  id="contact-title"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                >
+                  <option>Job Opportunity</option>
+                  <option>Project Collaboration</option>
+                  <option>General Inquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="contact-name" className="mb-1.5 block font-mono text-xs text-muted-foreground">
+                  name
+                </label>
+                <Input id="contact-name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
+              </div>
+              <div>
+                <label htmlFor="contact-email" className="mb-1.5 block font-mono text-xs text-muted-foreground">
+                  email
+                </label>
+                <Input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-message" className="mb-1.5 block font-mono text-xs text-muted-foreground">
+                  message
+                </label>
+                <Textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="What are you building, and where do I fit?"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <Button type="submit" className="group w-full" disabled={sending}>
+                <Send className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {sending ? "Sending…" : "Send message"}
+              </Button>
+            </form>
+          </Reveal>
         </div>
       </div>
     </section>

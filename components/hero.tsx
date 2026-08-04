@@ -1,150 +1,112 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, ExternalLink, Code } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { motion, useReducedMotion } from "framer-motion"
+import { ArrowDown, Github, Linkedin, Code2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { AgentTrace } from "@/components/agent-trace"
+
+const metrics = [
+  { value: "36K", label: "chat contacts handled per week", source: "SageAI" },
+  { value: "80%", label: "resolved by AI, no human needed", source: "SageAI" },
+  { value: "56%", label: "fewer human contacts per 1K rides", source: "SageAI" },
+  { value: "80+", label: "daily users, 30–40 investigations/day", source: "Komo AI" },
+]
+
+const socials = [
+  { href: "https://github.com/ArinNigam", icon: Github, label: "GitHub" },
+  { href: "https://linkedin.com/in/arin-nigam", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://leetcode.com/u/arin_nigam", icon: Code2, label: "LeetCode" },
+]
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false)
-  const [currentSkill, setCurrentSkill] = useState(0)
+  const reduceMotion = useReducedMotion()
 
-  const skills = [
-    "Software Engineer",
-    "Full-Stack Developer",
-    "React.js Expert",
-    "Node.js Developer",
-    "Spring Boot Developer",
-    "Flutter Developer",
-  ]
-
-  useEffect(() => {
-    setMounted(true)
-    const interval = setInterval(() => {
-      setCurrentSkill((prev) => (prev + 1) % skills.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [skills.length])
+  const enter = (delay: number) =>
+    reduceMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] as const },
+        }
 
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen flex items-center">
-      {/* Enhanced Background Animation */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
+    <section className="relative overflow-hidden px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-40">
+      <div className="grid-bg absolute inset-0 -z-10" />
 
-        {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-primary/30 rounded-full animate-fade delay-300"></div>
-        <div className="absolute top-40 right-32 w-1 h-1 bg-blue-500/40 rounded-full animate-fade delay-700"></div>
-        <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-purple-500/30 rounded-full animate-fade delay-1000"></div>
-      </div>
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Thesis */}
+          <div>
+            <motion.p
+              {...enter(0)}
+              className="mb-6 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground"
+            >
+              <span className="h-2 w-2 rounded-full bg-ok pulse-soft" />
+              open to remote roles · ai backend · real-time systems
+            </motion.p>
 
-      <div className="container mx-auto text-center">
-        <div className="max-w-4xl mx-auto">
-          {mounted && (
-            <div className="space-y-8">
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                <Badge variant="outline" className="mb-6 animate-pulse border-primary/50 text-green-500">
-                  Available for Full-Time Opportunities
-                </Badge>
+            <motion.h1
+              {...enter(0.1)}
+              className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+            >
+              I build AI systems that <span className="text-primary">survive production.</span>
+            </motion.h1>
 
-                <div className="space-y-4">
-                  <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight space-x-4">
-                    <span className="inline-block animate-in fade-in slide-in-from-left-8 duration-1000">Hi, I'm </span>
-                    <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-purple-500 animate-in fade-in slide-in-from-right-8 duration-1000 delay-300">
-                      Arin Nigam
-                    </span>
-                  </h1>
+            <motion.p {...enter(0.22)} className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              I&apos;m Arin Nigam, a backend engineer at Cityflo. I pitched, prototyped, and shipped{" "}
+              <span className="text-foreground">Komo AI</span> — a multi-agent platform the whole company runs
+              investigations on — and built the real-time core of <span className="text-foreground">SageAI</span>, an AI
+              support backend that deflects 80% of 36,000 weekly chats.
+            </motion.p>
 
-                  {/* Animated typing effect for skills */}
-                  <div className="h-16 flex items-center justify-center">
-                    <p className="text-2xl sm:text-3xl text-muted-foreground">
-                      <span className="animate-in fade-in slide-in-from-bottom-4 delay-700">I'm a </span>
-                        <span
-                        key={currentSkill}
-                        className="text-primary font-semibold animate-in fade-in slide-in-from-left-4 duration-1000 ease-linear transition-all delay-800"
-                        >
-                        {skills[currentSkill]}
-                      </span>
-                      <span className="animate-pulse fade-in text-primary">|</span>
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 delay-1000 leading-relaxed">
-                  <span className="inline-block animate-in fade-in delay-1200">
-                    Software Development Engineer passionate about
-                  </span>{" "}
-                  <span className="inline-block animate-in fade-in delay-1400 text-primary font-medium">
-                    building scalable web applications
-                  </span>{" "}
-                  <span className="inline-block animate-in fade-in delay-1600">and</span>{" "}
-                  <span className="inline-block animate-in fade-in delay-1800 text-blue-400 font-medium">
-                    innovative solutions
-                  </span>
-                </p>
-
-                <div className="flex flex-wrap justify-center gap-2 mb-8 animate-in fade-in slide-in-from-bottom-4 delay-1000">
-                  {["Springboot", "Node.js", "AWS", "GCP", "React.js", "Flutter", "LangChain"].map((skill, index) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="animate-in fade-in hover:scale-110 transition-all duration-300 cursor-default"
-                      style={{ animationDelay: `${1200 + index * 100}ms` }}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-in fade-in slide-in-from-bottom-4 delay-1400">
-                  <Button size="lg" asChild className="group hover:scale-105 transition-all duration-300">
-                    <Link href="#projects">
-                      <Code className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                      View My Work
-                    </Link>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="group hover:scale-105 transition-all duration-300"
+            <motion.div {...enter(0.34)} className="mt-8 flex flex-wrap items-center gap-4">
+              <Button size="lg" asChild>
+                <Link href="#systems">View the systems</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="/attachments/Arin_Nigam_Resume.pdf" download>
+                  <ArrowDown className="mr-2 h-4 w-4" />
+                  Résumé (PDF)
+                </a>
+              </Button>
+              <div className="flex items-center gap-4 pl-1">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <Link href="#contact">
-                      <Mail className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-                      Get In Touch
-                    </Link>
-                  </Button>
-                </div>
-
-                <div className="flex justify-center space-x-6 animate-in fade-in slide-in-from-bottom-4 delay-1600">
-                  {[
-                    { href: "https://github.com/arinnigam", icon: Github, label: "GitHub" },
-                    { href: "https://linkedin.com/in/arin-nigam", icon: Linkedin, label: "LinkedIn" },
-                    { href: "https://arinnigam.vercel.app", icon: ExternalLink, label: "Website" },
-                    { href: "mailto:arin.nigam@gmail.com", icon: Mail, label: "Email" },
-                    { href: "https://leetcode.com/u/arin_nigam", icon: Code, label: "LeetCode" },
-                  ].map((social, index) => {
-                    const IconComponent = social.icon
-                    return (
-                      <Link
-                        key={social.label}
-                        href={social.href}
-                        className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125 hover:-translate-y-1 animate-in fade-in"
-                        style={{ animationDelay: `${1800 + index * 100}ms` }}
-                      >
-                        <IconComponent className="h-6 w-6" />
-                        <span className="sr-only">{social.label}</span>
-                      </Link>
-                    )
-                  })}
-                </div>
+                    <s.icon className="h-5 w-5" />
+                  </a>
+                ))}
               </div>
-            </div>
-          )}
+            </motion.div>
+          </div>
+
+          {/* Signature: live agent trace */}
+          <motion.div {...enter(0.4)}>
+            <AgentTrace />
+          </motion.div>
         </div>
+
+        {/* Production numbers */}
+        <motion.dl
+          {...enter(0.55)}
+          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-lg border bg-border lg:grid-cols-4"
+        >
+          {metrics.map((m) => (
+            <div key={m.label} className="flex flex-col bg-card px-5 py-6">
+              <dt className="order-2 mt-2 text-sm leading-snug text-muted-foreground">{m.label}</dt>
+              <dd className="order-1 font-display text-3xl font-semibold text-foreground sm:text-4xl">{m.value}</dd>
+              <p className="order-3 mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-primary/80">{m.source}</p>
+            </div>
+          ))}
+        </motion.dl>
       </div>
     </section>
   )
