@@ -44,6 +44,12 @@ const demos: Demo[] = [
     system: "automatex winner",
     note: "The academic platform that won AutomateX 2024 — 200+ daily active users.",
   },
+  {
+    id: "958S_uwsUHg",
+    title: "Tech Mazdoor",
+    system: "cityflo ai support",
+    note: "Cityflo's AI tech support agent — mention it in a group or DM it directly, and it investigates the issue.",
+  },
 ]
 
 function DemoCard({ demo }: { demo: Demo }) {
