@@ -50,6 +50,12 @@ const demos: Demo[] = [
     system: "cityflo ai support",
     note: "Cityflo's AI tech support agent — mention it in a group or DM it directly, and it investigates the issue.",
   },
+  {
+    id: "sXhkwV-uHdk",
+    title: "Thane auto-rickshaw platform",
+    system: "prepaid autos",
+    note: "A prepaid auto service built end to end — POS integration, licence and Aadhaar onboarding checks, and end-of-day UPI payouts straight to drivers.",
+  },
 ]
 
 function DemoCard({ demo }: { demo: Demo }) {
