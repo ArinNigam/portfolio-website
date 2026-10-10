@@ -12,8 +12,21 @@ type Demo = {
   note: string
 }
 
-// Append new recordings here — id is the YouTube video id.
+// Array order is display order — lead with the work you want seen first.
+// id is the YouTube video id.
 const demos: Demo[] = [
+  {
+    id: "958S_uwsUHg",
+    title: "Tech Mazdoor",
+    system: "cityflo ai support",
+    note: "Cityflo's AI tech support agent — mention it in a group or DM it directly, and it investigates the issue.",
+  },
+  {
+    id: "sXhkwV-uHdk",
+    title: "Thane auto-rickshaw platform",
+    system: "prepaid autos",
+    note: "A prepaid auto service built end to end — POS integration, licence and Aadhaar onboarding checks, and end-of-day UPI payouts straight to drivers.",
+  },
   {
     id: "Je9hM2ajTNM",
     title: "Luxe operator dashboard",
@@ -43,18 +56,6 @@ const demos: Demo[] = [
     title: "Smart Insti app",
     system: "automatex winner",
     note: "The academic platform that won AutomateX 2024 — 200+ daily active users.",
-  },
-  {
-    id: "958S_uwsUHg",
-    title: "Tech Mazdoor",
-    system: "cityflo ai support",
-    note: "Cityflo's AI tech support agent — mention it in a group or DM it directly, and it investigates the issue.",
-  },
-  {
-    id: "sXhkwV-uHdk",
-    title: "Thane auto-rickshaw platform",
-    system: "prepaid autos",
-    note: "A prepaid auto service built end to end — POS integration, licence and Aadhaar onboarding checks, and end-of-day UPI payouts straight to drivers.",
   },
 ]
 
